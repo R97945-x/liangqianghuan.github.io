@@ -1,7 +1,7 @@
 baseURL = "https://R97945-x.github.io/liangqianghuan.github.io/"
-locale = 'zh-CN'
-title = '个人博客'
-theme = 'ink-theme'
+languageCode = "zh-CN"
+title = "我的个人博客"
+theme = "ink-theme"
 
 [markup.goldmark.renderer]
   unsafe = true
