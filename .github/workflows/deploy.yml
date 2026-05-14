@@ -1,10 +1,7 @@
 name: Deploy Hugo to GitHub Pages
-
 on:
   push:
-    branches:
-      - main
-
+    branches: [ main ]
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -12,19 +9,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          submodules: true
-
+          fetch-depth: 0
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
           extended: true
-
       - name: Build
-        run: hugo --gc --minify --theme=ink-theme
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        run: hugo --gc --minify
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
