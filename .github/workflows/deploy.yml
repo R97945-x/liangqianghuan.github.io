@@ -16,7 +16,7 @@ jobs:
           hugo-version: 'latest'
           extended: true
       - name: Build site
-        run: hugo --gc --minify
+       run: hugo --theme=ink-theme --gc --minify
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
